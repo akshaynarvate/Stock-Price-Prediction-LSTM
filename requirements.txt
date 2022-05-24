@@ -2,6 +2,7 @@ pandas
 yfinance
 datetime
 keras
+tensorflow
 numpy
 sklearn
 streamlit
