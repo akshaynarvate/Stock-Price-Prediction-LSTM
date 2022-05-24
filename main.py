@@ -12,7 +12,7 @@ st.set_page_config(page_title="Reliance Stock Prediciton Application") #tab titl
 
 #prediction function
 def predict_status(open, high, low, volume):
-    input_data = np.asarray([open, high, low, volume])
+    input_data = np.asarray([[open, high, low, volume]])
     input_data = input_data.reshape(1,-1)
     prediction = model.predict(input_data)
     return prediction[0]
