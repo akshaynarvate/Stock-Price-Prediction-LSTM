@@ -35,7 +35,7 @@ def main():
     
         diagnosis = predict_status(open, high, low, volume)
         if diagnosis:
-            st.write("The Close value is: ", diagnosis)
+            st.write("The Closing value is: ", diagnosis)
 
         else:
             st.error("Please Re-Enter the Values")
