@@ -11,8 +11,8 @@ model = pickle.load(open("Model_Reliance_LSTM.pkl","rb")) #loading the created m
 st.set_page_config(page_title="Reliance Stock Prediciton Application") #tab title
 
 #prediction function
-def predict_status(open, high, low, volume):
-    input_data = np.asarray([open, high, low, volume])
+def predict_status(open, high, low, adj close, volume):
+    input_data = np.asarray([open, high, low, adj close, volume])
     input_data = input_data.reshape(1,-1)
     prediction = model.predict(input_data)
     return prediction[0]
@@ -26,6 +26,7 @@ def main():
     open = st.number_input("Enter the Open Value")
     high = st.number_input("Enter the High Value")
     low = st.number_input("Enter the Low Value")
+    adj close = st.number_input("Enter the Adj Close Value")
     volume = st.number_input("Enter the Volume")
 
     #predict value
@@ -33,7 +34,7 @@ def main():
 
     if st.button("Predict"):
     
-        diagnosis = predict_status(open, high, low, volume)
+        diagnosis = predict_status(open, high, low, adj close, volume)
         if diagnosis:
             st.write("The Closing value is: ", diagnosis)
 
